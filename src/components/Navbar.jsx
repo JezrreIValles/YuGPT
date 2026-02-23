@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { Typography, Button, Box, Drawer, List, Divider, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material"; // Asegúrate de importar los componentes de Material-UI
-import MenuIcon from "@mui/icons-material/Menu";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
+import { MenuOutlined, AssuredWorkloadOutlined, DashboardOutlined, LoginOutlined, LogoutOutlined } from "@mui/icons-material";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
@@ -14,11 +12,11 @@ function Navbar() {
   const DrawerList = (
     <Box sx={{width: 250}} role="presentation" onClick={toggleDrawer(false)}>
       <List>
-        {['Conciliacioness', 'Configuración', 'Perfil'].map((text, index) => (
+        {['Conciliaciones', 'Dashboard'].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon/> : <MailIcon/>}
+                {index % 2 === 0 ? <AssuredWorkloadOutlined/> : <DashboardOutlined/>}
               </ListItemIcon>
               <ListItemText primary={text}/>
             </ListItemButton>
@@ -27,11 +25,11 @@ function Navbar() {
       </List>
       <Divider />
       <List>
-        {['Cerrar sesión'].map((text, index) => (
+        {['Iniciar sesión', 'Cerrar sesión'].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon/> : <MailIcon/>}
+                {index % 2 === 0 ? <LogoutOutlined/> : <LoginOutlined/>}
               </ListItemIcon>
               <ListItemText primary={text}/>
             </ListItemButton>
@@ -44,15 +42,24 @@ function Navbar() {
   return (
     <div className="w-full h-16 bg-white flex justify-between items-center p-4 border-b border-[#EEEEEE]">
       <div className="flex items-center gap-4">
-        <MenuIcon fontSize="large" onClick={toggleDrawer(true)} />
+        <MenuOutlined fontSize="large" onClick={toggleDrawer(true)} />
         <Drawer open={open} onClose={toggleDrawer(false)}>
           {DrawerList}
         </Drawer>
-        <Typography variant="h4" component="span">
+        <div className="grid grid-cols-2 items-center">
+        <Typography fontSize="42px">
           YuGPT
         </Typography>
+        <Typography fontSize="32px">
+          Conciliación Bancaria
+        </Typography>
+        </div>
       </div>
-      <Button variant="contained">Iniciar sesión</Button>
+      <Button variant="contained">
+        <Typography fontSize="16px">
+        Iniciar sesión
+        </Typography>
+        </Button>
     </div>
   );
 }

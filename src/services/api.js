@@ -1,4 +1,4 @@
-export const API_BASE_URL = import.meta.env.VITE_API_URL
+export const API_BASE_URL = "localhost:8000";
 
 async function apiFetch(endpoint, options = {}) {
     try {
@@ -14,15 +14,6 @@ async function apiFetch(endpoint, options = {}) {
         throw err;
     }
 }
-
-export const assignBank = async (bank) => {
-    return apiFetch("/api/bank", {
-        method: "POST",
-        headers: { "Content-Type": "text/plain" },
-        body: bank
-    });
-};
-
 
 export const createNewThread = async (content) => {
     return apiFetch("/api/new", {
