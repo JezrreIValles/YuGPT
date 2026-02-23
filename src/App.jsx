@@ -298,7 +298,7 @@ function App() {
     formData.append("bank", selectedBank);
 
     try {
-      const extractAccountUrl = "http://localhost:8000/extract_account/";
+      const extractAccountUrl = "https://yugpt-server-w3m3.onrender.com/extract_account/";
       const response = await fetch(extractAccountUrl, {
         method: "POST",
         body: formData,
@@ -311,7 +311,7 @@ function App() {
       const data = await response.json();
       setExtractedAccount(data);
 
-      const executionUrl = "http://localhost:8000/new/";
+      const executionUrl = "https://yugpt-server-w3m3.onrender.com/new/";
       const secondResponse = await fetch(executionUrl, {
         method: "POST",
         headers: {
@@ -365,7 +365,7 @@ function App() {
     formData.append("file", selectedAux);
 
     try {
-      const extractAuxUrl = "http://localhost:8000/extract_aux/";
+      const extractAuxUrl = "https://yugpt-server-w3m3.onrender.com/extract_aux/";
       const response = await fetch(extractAuxUrl, {
         method: "POST",
         body: formData,
@@ -411,7 +411,7 @@ function App() {
     formData.append("file", selectedPreviousConciliation);
 
     try {
-      const extractPreviousUrl = "http://localhost:8000/extract_previous/";
+      const extractPreviousUrl = "https://yugpt-server-w3m3.onrender.com/extract_previous/";
       const response = await fetch(extractPreviousUrl, {
         method: "POST",
         body: formData,
@@ -494,7 +494,7 @@ function App() {
     };
 
     try {
-      const conciliationUrl = "http://localhost:8000/create_conciliation/";
+      const conciliationUrl = "https://yugpt-server-w3m3.onrender.com/create_conciliation/";
       const response = await fetch(conciliationUrl, {
         method: "POST",
         headers: {

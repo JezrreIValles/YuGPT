@@ -1,4 +1,4 @@
-export const API_BASE_URL = "localhost:8000";
+export const API_BASE_URL = "https://yugpt-server-w3m3.onrender.com/";
 
 async function apiFetch(endpoint, options = {}) {
     try {
